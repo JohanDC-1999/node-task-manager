@@ -79,6 +79,26 @@ This project is a simple Task Manager API built with Node.js, Express, and Mongo
         * 201 (Created) - Returns the created task object.
         * 400 (Bad Request) - Returns an error message if the request is invalid.
 
+## Testing with cURL
+
+You can use cURL to test the API endpoints. Here are some examples:
+
+* **Create a task:**
+
+    ```bash
+    curl -X POST http://localhost:5000/tasks -H "Content-Type: application/json" -d "{\"title\": \"Buy groceries\"}"
+    ```
+
+    * Replace `http://localhost:5000/tasks` with your API's URL if it's running on a different port or domain.
+
+* **Example of a bad request:**
+
+    ```bash
+    curl -X POST http://localhost:5000/tasks -H "Content-Type: application/json" -d "{}"
+    ```
+
+    * This will return an error because the title is required.
+
 ## Project Structure
 ```
 task-manager-api/
