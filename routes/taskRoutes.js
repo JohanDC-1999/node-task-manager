@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 })
 
 // Get a request based on the id → (GET /tasks/:id")
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => { // The :id part tells Express that this segment of the URL is a variable.
     try{
         const task = await Task.findById(req.params.id);
         if(!task) return res.status(400).json({message: "Task not found"});
