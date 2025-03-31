@@ -8,6 +8,10 @@ This project is a simple Task Manager API built with Node.js, Express, and Mongo
     * Allows users to create new tasks via a `POST /tasks` endpoint.
     * Task data is stored in a MongoDB database.
     * Task model includes title validation.
+* **Retrieve All Tasks:**
+    * Retrieves all tasks via a `GET /tasks` endpoint.
+* **Retrieve Single Task:**
+    * Retrieves a single task based on its ID via `GET /tasks/:id` endpoint.
 * **MongoDB Integration:**
     * Uses Mongoose to interact with MongoDB.
     * Configured to connect to a MongoDB Atlas cluster (specified in `.env`).
@@ -33,7 +37,7 @@ This project is a simple Task Manager API built with Node.js, Express, and Mongo
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/JohanDC-1999/node-task-manager.git
+    git clone https://github.com/JohanDC-1999/node-task-manager-api.git
     ```
 
 2.  **Install dependencies:**
@@ -78,6 +82,17 @@ This project is a simple Task Manager API built with Node.js, Express, and Mongo
     * Response:
         * 201 (Created) - Returns the created task object.
         * 400 (Bad Request) - Returns an error message if the request is invalid.
+* **`GET /tasks`:**
+    * Retrieves all tasks.
+    * Response:
+        * 200 (OK) - Returns an array of task objects.
+        * 500 (Internal Server Error) - Returns an error message if a server error occurs.
+* **`GET /tasks/:id`:**
+    * Retrieves a single task based on its ID.
+    * Response:
+        * 200 (OK) - Returns the task object.
+        * 400 (Bad Request) - Returns a "Task not found" message if the task does not exist.
+        * 500 (Internal Server Error) - Returns an error message if a server error occurs.
 
 ## Testing with cURL
 
@@ -90,6 +105,18 @@ You can use cURL to test the API endpoints. Here are some examples:
     ```
 
     * Replace `http://localhost:5000/tasks` with your API's URL if it's running on a different port or domain.
+
+* **Get all tasks:**
+
+    ```bash
+    curl http://localhost:5000/tasks
+    ```
+
+* **Get a specific task:**
+
+    ```bash
+    curl http://localhost:5000/tasks/64109315354992925232432a #replace with a real task ID
+    ```
 
 * **Example of a bad request:**
 
@@ -127,3 +154,4 @@ task-manager-api/
 ## Resources
 * [Getting Started With MongoDB & Mongoose](https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/) USE LOCAL DB OR CLUSTER
 * [MongoDB SET UP CLUSTER](https://www.mongodb.com/docs/atlas/getting-started/)
+* [Mongoose Model Methods](https://mongoosejs.com/docs/5.x/docs/api/model.html)
