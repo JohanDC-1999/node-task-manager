@@ -1,0 +1,2 @@
+[Getting Started With MongoDB & Mongoose](https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/) USE LOCAL DB OR CLUSTER
+[mONGOdb SET UP CLUSTER](https://www.mongodb.com/docs/atlas/getting-started/)
