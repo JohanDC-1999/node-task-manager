@@ -12,6 +12,10 @@ This project is a simple Task Manager API built with Node.js, Express, and Mongo
     * Retrieves all tasks via a `GET /tasks` endpoint.
 * **Retrieve Single Task:**
     * Retrieves a single task based on its ID via `GET /tasks/:id` endpoint.
+* **Update Task:**
+    * Updates a task based on its ID via `PUT /tasks/:id` endpoint.
+* **Delete Task:**
+    * Deletes a task based on its ID via `DELETE /tasks/:id` endpoint.
 * **MongoDB Integration:**
     * Uses Mongoose to interact with MongoDB.
     * Configured to connect to a MongoDB Atlas cluster (specified in `.env`).
@@ -117,7 +121,17 @@ You can use cURL to test the API endpoints. Here are some examples:
     ```bash
     curl http://localhost:5000/tasks/64109315354992925232432a #replace with a real task ID
     ```
+* **Update a task:**
 
+    ```bash
+    curl -X PUT http://localhost:5000/tasks/67ea50b442be85c4461d7379 -H "Content-Type: application/json" -d "{\"title\": \"Buy milk\"}" #replace with a real task ID
+    ```
+
+* **Delete a task:**
+
+    ```bash
+    curl -X DELETE http://localhost:5000/tasks/64109315354992925232432a #replace with a real task ID
+    ```
 * **Example of a bad request:**
 
     ```bash
@@ -155,3 +169,4 @@ task-manager-api/
 * [Getting Started With MongoDB & Mongoose](https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/) USE LOCAL DB OR CLUSTER
 * [MongoDB SET UP CLUSTER](https://www.mongodb.com/docs/atlas/getting-started/)
 * [Mongoose Model Methods](https://mongoosejs.com/docs/5.x/docs/api/model.html)
+* [Mongoose findByIdAndUpdate() Function](https://www.geeksforgeeks.org/mongoose-findbyidandupdate-function/)

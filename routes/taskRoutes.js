@@ -34,5 +34,28 @@ router.get("/:id", async (req, res) => { // The :id part tells Express that this
     }
 })
 
+// Delete a task based on the id → (DELETE /tasks/:id)
+router.delete("/:id", async(req, res) => {
+    try{
+        const task = await Task.findByIdAndDelete(req.params.id);
+        if(!task) return res.status(400).json({message: 'Task not found'});
+        res.json({message: `Deleted task ${task.title} with id ${task.id}`})
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+})
+
+// Update a task based on the id → (PUT /tasks/:id)
+router.put("/:id", async (req, res) => {
+    try{
+        const task = await Task.findByIdAndUpdate(req.params.id, req.body, {new: true, upsert:true}); // new → created if does not exist, upsert → returns the updated object not original
+        if(!task) return res.status(400).json({message: 'Task not found'});
+        res.json({message: `Task Updated`, updatedTask: task});
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+})
 
 export default router; // Export the router
