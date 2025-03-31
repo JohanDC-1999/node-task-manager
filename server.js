@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/tasks", taskRoutes); // Mount the task routes on the /tasks path
+app.use("/tasks", taskRoutes); // Mount the task routes on the /tasks path, allows to use '/' in router to convert to /tasks
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(`${process.env.MONGO_URI}/${process.env.MONGO_DB}`)
