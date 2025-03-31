@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 
 app.use("/tasks", taskRoutes);
 
-mongoose.connect(`${process.env.MONGO_URI2}/${process.env.MONGO_DB}`)
+mongoose.connect(`${process.env.MONGO_URI}/${process.env.MONGO_DB}`)
   .then(() => console.log(`Connected to ${process.env.MONGO_DB} db`)) // use MongoDB Atlas cluster, url + db name
   .catch(err => console.log(err));
 
